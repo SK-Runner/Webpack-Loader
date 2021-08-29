@@ -1,0 +1,10 @@
+{
+    "type":"object",
+    "properties":{
+        "presets":{
+            "type":"Array",
+            "description":"@babel/preset-env"
+        }
+    },
+    "additionalProperties":true
+}
