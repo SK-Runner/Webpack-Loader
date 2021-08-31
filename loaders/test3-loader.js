@@ -8,7 +8,7 @@ const schema = require('./schema.json')
 
 module.exports = function(content, map, meta){
     console.log('我是test3-loader的主方法');
-
+    console.log(meta);
     // 获取配置文件中的options
     let options = loaderUtils.getOptions(this);
     console.log('name',options.name);

@@ -24,14 +24,14 @@ var config = {
                             name: "Jack"
                         }
                     },
-                    {
-                        loader:'Babel-Loader',
-                        options:{
-                            presets:[
-                                '@babel/preset-env'
-                            ]
-                        }
-                    }
+                    // {
+                    //     loader:'Babel-Loader',
+                    //     options:{
+                    //         presets:[
+                    //             '@babel/preset-env'
+                    //         ]
+                    //     }
+                    // }
                 ],
             }
         ]
