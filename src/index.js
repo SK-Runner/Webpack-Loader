@@ -1,1 +1,3 @@
-document.write("Hello Loader");
+let add = ()=>{
+    console.log("hello");
+}

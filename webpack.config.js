@@ -7,45 +7,50 @@ console.log(path);
  * 在这个对象中配置webpack的运行参数
  */
 var config = {
-    mode:'development',
-    module:{
+    mode: 'development',
+    module: {
         // 可以再module下的rules数组中规定loader配置
-        rules:[
+        rules: [
+            // {
+            //     // 匹配文件类型
+            //     test:/\.js$/,
+            //     // 使用规则
+            //     use:[
+            //         'test-loader',
+            //         'test2-loader',
+            //         {
+            //             loader:'test3-loader',
+            //             options:{
+            //                 name: "Jack"
+            //             }
+            //         },
+            //     ],
+            // },
             {
-                // 匹配文件类型
-                test:/\.js$/,
-                // 使用规则
-                use:[
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
                     'test-loader',
-                    'test2-loader',
                     {
-                        loader:'test3-loader',
-                        options:{
-                            name: "Jack"
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
                         }
-                    },
-                    // {
-                    //     loader:'Babel-Loader',
-                    //     options:{
-                    //         presets:[
-                    //             '@babel/preset-env'
-                    //         ]
-                    //     }
-                    // }
-                ],
+                    }
+                ]
             }
         ]
     },
-    resolveLoader:{
+    resolveLoader: {
         modules: [
             'node_modules',
             'loaders'
         ]
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
-            template:path.resolve(__dirname,'src/index.html'),
-            filename:'index.html'
+            template: path.resolve(__dirname, 'src/index.html'),
+            filename: 'index.html'
         })
     ],
 }

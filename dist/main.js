@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("throw new Error(\"Module build failed (from ./node_modules/Babel-Loader/lib/index.js):\\nError: Cannot find module '@babel/core'\\nRequire stack:\\n- D:\\\\a系统文件勿删\\\\学习资料\\\\webpack\\\\my-loader\\\\node_modules\\\\Babel-Loader\\\\lib\\\\index.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack\\\\node_modules\\\\loader-runner\\\\lib\\\\loadLoader.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack\\\\node_modules\\\\loader-runner\\\\lib\\\\LoaderRunner.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack\\\\lib\\\\NormalModuleFactory.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack\\\\lib\\\\Compiler.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack\\\\lib\\\\webpack.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack\\\\lib\\\\index.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack-cli\\\\lib\\\\webpack-cli.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack-cli\\\\lib\\\\bootstrap.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack-cli\\\\bin\\\\cli.js\\n- C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack\\\\bin\\\\webpack.js\\n babel-loader@8 requires Babel 7.x (the package '@babel/core'). If you'd like to use Babel 6.x ('babel-core'), you should install 'babel-loader@7'.\\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)\\n    at Function.Module._load (internal/modules/cjs/loader.js:746:27)\\n    at Module.require (internal/modules/cjs/loader.js:974:19)\\n    at require (C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack-cli\\\\node_modules\\\\v8-compile-cache\\\\v8-compile-cache.js:159:20)\\n    at Object.<anonymous> (D:\\\\a系统文件勿删\\\\学习资料\\\\webpack\\\\my-loader\\\\node_modules\\\\Babel-Loader\\\\lib\\\\index.js:10:11)\\n    at Module._compile (C:\\\\Program Files\\\\nodejs\\\\node_global\\\\node_modules\\\\webpack-cli\\\\node_modules\\\\v8-compile-cache\\\\v8-compile-cache.js:192:30)\\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)\\n    at Module.load (internal/modules/cjs/loader.js:950:32)\\n    at Function.Module._load (internal/modules/cjs/loader.js:790:14)\\n    at Module.require (internal/modules/cjs/loader.js:974:19)\");\n\n//# sourceURL=webpack://my-loader/./src/index.js?");
+eval("var add = function add() {\n  console.log(\"hello\");\n};\n\n//# sourceURL=webpack://my-loader/./src/index.js?");
 
 /***/ })
 
@@ -24,7 +24,7 @@ eval("throw new Error(\"Module build failed (from ./node_modules/Babel-Loader/li
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
 /******/ 	__webpack_modules__["./src/index.js"]();
 /******/ 	
