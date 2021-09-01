@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path'); //路径管理模块,使用它可以高效获取项目路径,避免路径错误.
 
-console.log(path);
+// console.log(path);
 
 /**
  * 在这个对象中配置webpack的运行参数
@@ -11,34 +11,16 @@ var config = {
     module: {
         // 可以再module下的rules数组中规定loader配置
         rules: [
-            // {
-            //     // 匹配文件类型
-            //     test:/\.js$/,
-            //     // 使用规则
-            //     use:[
-            //         'test-loader',
-            //         'test2-loader',
-            //         {
-            //             loader:'test3-loader',
-            //             options:{
-            //                 name: "Jack"
-            //             }
-            //         },
-            //     ],
-            // },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [
+                // 匹配文件类型
+                test:/\.js$/,
+                // 使用规则
+                use:[
                     'test-loader',
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
-                    }
-                ]
-            }
+                    'test2-loader',
+                    'test3-loader'
+                ],
+            },
         ]
     },
     resolveLoader: {

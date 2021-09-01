@@ -13,8 +13,11 @@ module.exports = function(content, map, meta){
     const callback = this.async();
     setTimeout(() => {
         // 省略了第三、四参数
+        console.log("loader2 末尾");
         callback(null,content);
-    }, 1000);
+        
+    }, 5000);
+    return content;
 }
 
 module.exports.pitch = function(){

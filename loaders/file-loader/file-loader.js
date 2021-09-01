@@ -27,7 +27,7 @@ export default function loader(content) {
     const context = options.context || this.rootContext;
     // 指定导出文件的名字，默认是[hash值.文件类型]
     const name = options.name || '[contenthash].[ext]';
-    // 生成输出路径
+    // interpolateName 方法，用于生成对应的文件名
     const url = interpolateName(this, name, {
         context,
         content,
@@ -38,9 +38,8 @@ export default function loader(content) {
          */
         regExp: options.regExp,
     });
-
     let outputPath = url;
-
+    // options.outputPath 用户可以指定输出路径
     if (options.outputPath) {
         if (typeof options.outputPath === 'function') {
             outputPath = options.outputPath(url, this.resourcePath, context);
@@ -49,8 +48,8 @@ export default function loader(content) {
         }
     }
 
+    // options.publicPath 用户指定的发布目录
     let publicPath = `__webpack_public_path__ + ${JSON.stringify(outputPath)}`;
-
     if (options.publicPath) {
         if (typeof options.publicPath === 'function') {
             publicPath = options.publicPath(url, this.resourcePath, context);
@@ -69,6 +68,7 @@ export default function loader(content) {
         publicPath = options.postTransformPublicPath(publicPath);
     }
 
+    // options.emitFile 设置为 false 后，除了图片不会被打包出来，其他都按正常的来。
     if (typeof options.emitFile === 'undefined' || options.emitFile) {
         const assetInfo = {};
 
@@ -97,10 +97,13 @@ export default function loader(content) {
         this.emitFile(outputPath, content, null, assetInfo);
     }
 
+    // 文件是否以esModule形式引入（默认为是）
     const esModule =
         typeof options.esModule !== 'undefined' ? options.esModule : true;
 
     return `${esModule ? 'export default' : 'module.exports ='} ${publicPath};`;
 }
 
+// webpack 会对文件内容进行 UTF8 编码，当 loader 需要处理二进制数据时，需要设置 raw 为 true。此后，webpack 用使用 raw-loader 来加载所指定的文件，而不会对文件内容进行 UTF8 编码。
+// Loader 模式 -> module.exports.raw = loader.raw;
 export const raw = true;

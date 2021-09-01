@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("var add = function add() {\n  console.log(\"hello\");\n};\n\n//# sourceURL=webpack://my-loader/./src/index.js?");
+eval("let add = ()=>{\r\n    console.log(\"hello\");\r\n}\n\n//# sourceURL=webpack://my-loader/./src/index.js?");
 
 /***/ })
 
