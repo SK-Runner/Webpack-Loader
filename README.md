@@ -10,11 +10,113 @@
 
 ### 2、常用的Loader
 
-（1）file-loader
+#### file-loader
 
-file-loader 处理图片的时候是怎么做？
-\- 返回一个字符串形式的图片名称（路径）
-\- 资源拷贝一份到指定目录
+​	file-loader 处理图片的时候是怎么做？
+​		\- 返回一个字符串形式的图片名称（路径）
+​		\- 资源拷贝一份到指定目录
+
+#### style-loader
+
+​	**用途**：用于将`css`编译完成的样式，挂载到页面`style`标签上。
+
+#### css-loader
+
+​	**用途**：识别`.css`文件, 处理`css`必须配合`style-loader`共同使用，只安装`css-loader`样式不会生效。
+
+#### sass-loader
+
+​	**用途**：`css`预处理器
+
+​	**以上三种loader需要注意加载顺序：**style-loader放到第一位，因为loader都是从下往上执行，**最后全部编译完成挂载到style上**
+
+```JavaScript
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ],
+                include: /src/, 
+            },
+        ]
+    }
+}
+```
+
+
+
+#### postcss-loader
+
+​	**用途**：补充 css 样式各种浏览器内核前缀
+
+
+
+#### babel-loader
+
+​	**用途：**将Es6+ 语法转换为Es5语法。
+
+```
+cnpm i babel-loader @babel/core @babel/preset-env -D
+```
+
+​	@babel/core：babel编译器核心模块。
+
+​	@babel/preset-env：babel官方推荐的预置器，可根据用户的环境自动添加所需的插件和补丁来编译Es6代码。
+
+
+
+#### ts-loader
+
+​	**用途：**配置项目 typescript
+
+​	**tsconfig.json**
+
+```json
+{
+    "compilerOptions": {
+      "declaration": true,
+      "declarationMap": true, // 开启map文件调试使用
+      "sourceMap": true,
+      "target": "es5", // 转换为Es5语法
+    }
+}  
+```
+
+
+
+#### html-loader
+
+​	**用途：**引入一个`html`页面代码片段赋值给`DOM`元素内容使用，这时就用到`html-loader`
+
+​	**index.js**
+
+```javascript
+import Content from "../template.html"
+
+document.body.innerHTML = Content
+```
+
+​	**webpack.config.js**
+
+```javascript
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.html$/,
+                use: "html-loader"
+            }
+        ]
+    }
+}
+```
+
+
 
 ###  3、loader分类
 

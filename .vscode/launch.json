@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "pwa-node",
+        "request": "launch",
+        "name": "Loader3",
+        "runtimeExecutable":"node-nightly",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "program": "${workspaceFolder}/node_modules/webpack/bin/webpack.js"
+      }
+    ]
+}
