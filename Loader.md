@@ -10,21 +10,21 @@
 
 ### 2、常用的Loader
 
-#### file-loader
+#### [file-loader](https://www.npmjs.com/package/file-loader)
 
 ​	file-loader 处理图片的时候是怎么做？
 ​		\- 返回一个字符串形式的图片名称（路径）
 ​		\- 资源拷贝一份到指定目录
 
-#### style-loader
+#### [style-loader](https://www.npmjs.com/package/style-loader)
 
 ​	**用途**：用于将`css`编译完成的样式，挂载到页面`style`标签上。
 
-#### css-loader
+#### [css-loader](https://www.npmjs.com/package/css-loader)
 
 ​	**用途**：识别`.css`文件, 处理`css`必须配合`style-loader`共同使用，只安装`css-loader`样式不会生效。
 
-#### sass-loader
+#### [sass-loader](https://www.npmjs.com/package/sass-loader)
 
 ​	**用途**：`css`预处理器
 
@@ -50,13 +50,13 @@ module.exports = {
 
 
 
-#### postcss-loader
+#### [postcss-loader](https://www.npmjs.com/package/postcss-loader)
 
 ​	**用途**：补充 css 样式各种浏览器内核前缀
 
 
 
-#### babel-loader
+#### [babel-loader](https://www.npmjs.com/package/babel-loader)
 
 ​	**用途：**将Es6+ 语法转换为Es5语法。
 
@@ -70,7 +70,7 @@ cnpm i babel-loader @babel/core @babel/preset-env -D
 
 
 
-#### ts-loader
+#### [ts-loader](https://www.npmjs.com/package/ts-loader)
 
 ​	**用途：**配置项目 typescript
 
@@ -89,7 +89,7 @@ cnpm i babel-loader @babel/core @babel/preset-env -D
 
 
 
-#### html-loader
+#### [html-loader](https://www.npmjs.com/package/html-loader)
 
 ​	**用途：**引入一个`html`页面代码片段赋值给`DOM`元素内容使用，这时就用到`html-loader`
 
@@ -120,29 +120,27 @@ module.exports = {
 
 ###  3、loader分类
 
-对于loader，默认都是一样的，只不过在使用的时候可以放在不同的位置或者进行了不同的修饰，因此说清起来loader就有分类了
-（1） 普通loader：没有做任何的配置
-（2）前置loader：enforce属性配置pre
-（3）后置loader：enforce属性配置post
-（4）行内loader：使用 ! 进行分割
+​	对于loader，默认都是一样的，只不过在使用的时候可以放在不同的位置或者进行了不同的修饰，因此说清起来loader就有分类了
+​	（1） 普通loader：没有做任何的配置
+​	（2）前置loader：enforce属性配置pre
+​	（3）后置loader：enforce属性配置post
+​	（4）行内loader：使用 ! 进行分割
 
-同类Loader的加载顺序：由下向上，从右向左
+​	同类Loader的加载顺序：由下向上，从右向左
 
-不同类Loader加载顺序：pre > normal > inline > post
+​	不同类Loader加载顺序：pre > normal > inline > post
 
-const title = require(‘!!inline-loader!./title')  双感叹号
+​	const title = require(‘!!inline-loader!./title')  双感叹号
 
- 配置符号
-\> 为了使用方便，可以通过一些符号来设置某些的开启和关闭
-\- !跳过了normal loader
-\- -!跳过了normal + pre loader
-\- !!跳过了normal pre post (只保留了inline)
+​	配置符号
+​		\> 为了使用方便，可以通过一些符号来设置某些的开启和关闭
+​		\- !跳过了normal loader
+​		\- -!跳过了normal + pre loader
+​		\- !!跳过了normal pre post (只保留了inline)
 
 ### 4、webpack 处理流程
 
 从入口文件出发，找到所有依赖的模块，直到所有依赖模块也都被loader 处理之后返回结果
-
-### 5、
 
 ## 二、自定义 loader
 
@@ -259,7 +257,7 @@ module.exports = function(content,map,meta){
 }
 ```
 
-异步Loader（推荐）：
+异步Loader（推荐）：使用异步loader时，即使有return也不会以同步方式执行
 
 ```javascript
 module.exports = function(content, map, meta){
